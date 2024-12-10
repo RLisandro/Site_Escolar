@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - Site Escolar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/feedback.css">
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .feedback-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-left: 1rem;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .radio-option input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus,
+        .radio-option input:focus {
+            border-color: #4CAF50;
+            box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+            outline: none;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+        }
+
+        .submit-button:focus {
+            outline: 3px solid #4CAF50;
+            outline-offset: 2px;
+            background-color: #45a049;
+        }
+
+        .submit-button:active {
+            transform: translateY(1px);
+        }
+
+        .success-message {
+            display: none;
+            background-color: #dff0d8;
+            color: #3c763d;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .container {
+                margin: 1rem;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sua Opinião é Importante</h1>
+        <p>Ajude-nos a melhorar nosso site para todos os usuários. Seu feedback é valioso!</p>
+
+        <form id="feedbackForm" class="feedback-form">
+            <!-- Experiência Geral -->
+            <div class="form-group">
+                <label>Como você avalia sua experiência geral com o site?</label>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="exp-excelente" name="experiencia" value="excelente" required>
+                        <label for="exp-excelente">Excelente</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="exp-bom" name="experiencia" value="bom">
+                        <label for="exp-bom">Bom</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="exp-regular" name="experiencia" value="regular">
+                        <label for="exp-regular">Regular</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="exp-ruim" name="experiencia" value="ruim">
+                        <label for="exp-ruim">Ruim</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Facilidade de Uso -->
+            <div class="form-group">
+                <label>O site é fácil de usar?</label>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="uso-muito-facil" name="facilidade" value="muito-facil" required>
+                        <label for="uso-muito-facil">Muito fácil</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="uso-facil" name="facilidade" value="facil">
+                        <label for="uso-facil">Fácil</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="uso-dificil" name="facilidade" value="dificil">
+                        <label for="uso-dificil">Difícil</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="uso-muito-dificil" name="facilidade" value="muito-dificil">
+                        <label for="uso-muito-dificil">Muito difícil</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Satisfação -->
+            <div class="form-group">
+                <label for="satisfacao">Qual seu nível de satisfação?</label>
+                <select id="satisfacao" name="satisfacao" required>
+                    <option value="">Selecione</option>
+                    <option value="1">1 - Muito Insatisfeito</option>
+                    <option value="2">2 - Insatisfeito</option>
+                    <option value="3">3 - Neutro</option>
+                    <option value="4">4 - Satisfeito</option>
+                    <option value="5">5 - Muito Satisfeito</option>
+                </select>
+            </div>
+
+            <!-- Sugestões -->
+            <div class="form-group">
+                <label for="sugestoes">Sugestões de melhoria (opcional):</label>
+                <textarea id="sugestoes" name="sugestoes" placeholder="Digite suas sugestões aqui..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-button">Enviar Feedback</button>
+        </form>
+
+        <div id="successMessage" class="success-message"></div>
+    </div>
+
+    <script>
+        document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const submitButton = this.querySelector('button[type="submit"]');
+            const successMessage = document.getElementById('successMessage');
+
+            // Desabilitar o botão durante o envio
+            submitButton.disabled = true;
+            submitButton.innerHTML = 'Enviando...';
+
+            fetch('salvar_feedback.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    successMessage.style.display = 'block';
+                    successMessage.textContent = data.message;
+                    this.reset(); // Limpar formulário
+                    
+                    // Esconder mensagem após 3 segundos
+                    setTimeout(() => {
+                        successMessage.style.display = 'none';
+                    }, 3000);
+                } else {
+                    throw new Error(data.message || 'Erro ao enviar feedback');
+                }
+            })
+            .catch(error => {
+                console.error(error);
+                successMessage.style.display = 'block';
+                successMessage.textContent = error.message;
+            })
+            .finally(() => {
+                // Reabilitar o botão
+                submitButton.disabled = false;
+                submitButton.innerHTML = 'Enviar Feedback';
+            });
+        });
+    </script>
+</body>
+</html>

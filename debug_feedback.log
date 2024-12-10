@@ -1,0 +1,48 @@
+[2024-12-08 19:11:44] Dados recebidos: Array
+(
+    [experiencia] => excelente
+    [facilidade] => facil
+    [satisfacao] => 4
+    [sugestoes] => ddde
+)
+
+[2024-12-08 19:11:44] SQL: INSERT INTO feedback_respostas (
+    experiencia_geral, 
+    facilidade_uso, 
+    satisfacao, 
+    sugestoes
+) VALUES (?, ?, ?, ?)
+[2024-12-08 19:11:44] Feedback salvo com sucesso
+[2024-12-08 19:13:20] Dados recebidos: Array
+(
+    [experiencia] => bom
+    [facilidade] => facil
+    [satisfacao] => 1
+    [sugestoes] => ok
+)
+
+[2024-12-08 19:13:20] SQL: INSERT INTO feedback_respostas (
+    experiencia_geral, 
+    facilidade_uso, 
+    satisfacao, 
+    sugestoes
+) VALUES (?, ?, ?, ?)
+[2024-12-08 19:13:20] Feedback salvo com sucesso
+[2024-12-08 19:19:09] Dados recebidos: Array
+(
+    [experiencia] => excelente
+    [facilidade] => muito-facil
+    [satisfacao] => 3
+    [sugestoes] => Opa
+)
+
+[2024-12-08 19:19:13] Email de feedback enviado com sucesso
+[2024-12-08 20:13:59] Dados recebidos: Array
+(
+    [experiencia] => excelente
+    [facilidade] => dificil
+    [satisfacao] => 3
+    [sugestoes] => Parabéns 
+)
+
+[2024-12-08 20:14:03] Email de feedback enviado com sucesso
